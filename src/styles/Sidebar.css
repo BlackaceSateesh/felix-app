@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --nav-width: 56px;
+    --font-bold: 700;
+    --first-color: #12192C;
+    --second-color: #F5A623;
+    --white-color: #EDEDED;
+    --body-font: 'Quicksand', sans-serif;
+    --small-font-size: .875rem;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 1rem 0 0 5rem;
+    font-family: var(--body-font);
+    background-color: var(--white-color);
+    transition: .5s;
+    height: 100vh;
+    background: url('https://i.postimg.cc/HW2MmR3p/ken-cheung-Kon-WFWUa-Auk-unsplash.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--first-color);
+    padding: 1.25rem .5rem 2rem;
+    transition: .5s;
+    z-index: 100;
+    background: url('https://i.postimg.cc/nLtzbX0v/hero-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+}
+
+.nav-logo-icon { margin-right: 1.2rem; }
+.nav-logo-text { color: var(--white-color); font-weight: var(--font-bold); }
+
+.nav-toggle {
+    position: absolute;
+    top: 1.1rem;
+    right: -0.5rem;
+    width: 18px;
+    height: 18px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: var(--first-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    color: var(--white-color);
+    transition: .3s;
+}
+
+.nav-link:hover { 
+    color: var(--first-color); 
+    background-color: var(--second-color); 
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.nav-text {
+    font-weight: var(--font-bold);
+}
+
+.show {
+    width: 168px;
+}
+
+.expander {
+    padding: 1rem 0 0 12rem;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: .5s;
+}
+
+.active {
+    background-color: var(--second-color);
+    color: var(--first-color);
+}

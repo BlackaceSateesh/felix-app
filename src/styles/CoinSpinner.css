@@ -1,0 +1,85 @@
+.CoinSpinner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16rem
+}
+
+#widget {
+    width: 500px;
+    height: 500px;
+    transition: opacity 1.1s ease, transform 1.1s ease;
+    margin-top: 0.3em;
+    flex-shrink: 0;
+    transform: translate3d(0px, 0px, 0px) scale3d(1.04, 1.04, 1);
+    border-radius: 40px;
+    margin-bottom: 0.4em;
+    padding: 0.12em;
+    background: linear-gradient(#292c36, #21232a);
+    background: #21232a;
+    box-shadow: 2px 2px 1px -1px rgba(114, 130, 134, 0.35) inset;
+}
+
+#widget header {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transform: translateX(0) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #585c65 0%, #555961 100%);
+    box-shadow: 2px 2px 0px -1px rgba(255, 255, 255, 0.3) inset, 0px -0.06em 1px 2px #3d3d47 inset, 0 -0.1em 0.2em 0.1em rgba(255, 255, 255, 0.15) inset, 0px 0.4em 0.2em -0.1em rgba(19, 23, 24, 0.45);
+    transition: transform 1.3s ease;
+    transform: translate3d(0px, 0px, 0px) scale3d(0.85, 0.85, 1) !important;
+    transition-delay: 50ms;
+}
+
+/* #widget header.fadeIn {
+    opacity: 1 !important;
+    transform: scale3d(1, 1, 1) !important;
+    } */
+
+#widget .title {
+    font-size: 26rem;
+    z-index: 1;
+    line-height: 26rem;
+    font-family: "Akira Expanded", sans-serif;
+    margin: 0;
+    margin-right: 0.06em;
+    text-align: center;
+    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.6), 0px -1px 0px rgba(255, 255, 255, 0.6), -1px 0px 0px rgba(255, 255, 255, 0.6), 0em 0.25em 0.2em rgba(9, 12, 15, 0.2);
+    font-style: normal;
+    font-weight: 800;
+    align-self: center;
+    position: relative;
+    color: #b1b6c3;
+    color: color(display-p3 0.6976 0.7129 0.759);
+    margin-bottom: 0.05em;
+    transform: translate3d(0px, 0px, 0px) scale3d(0.8, 0.8, 1) !important;
+    transition: letter-spacing 2s ease, opacity 2s ease, transform 2s ease;
+    transition-delay: 150ms;
+    letter-spacing: 0.2em;
+    top: -200px;
+}
+
+#widget h2 {
+    display: flex;
+    color: #a9aab5;
+    text-align: center;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4rem;
+    letter-spacing: 0.32em;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+    position: relative;
+    top: -225px;
+    text-transform: uppercase;
+}
