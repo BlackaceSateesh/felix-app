@@ -1,0 +1,40 @@
+export const AllPlansContent = [
+  {
+    planName: "Basic",
+    sellingPrice: "49",
+    originalPrice: "99",
+    duration: "1 Month",
+    descriptionEnumList: ["Unlimited Support", "24/7 Access"],
+    notIncludedBenefits: ["No Free Trial"],
+    popular: false,
+  },
+  {
+    planName: "Standard",
+    sellingPrice: "99",
+    originalPrice: "149",
+    duration: "3 Months",
+    descriptionEnumList: [
+      "Unlimited Support",
+      "Priority Access",
+      "Profile Verification",
+    ],
+    notIncludedBenefits: ["No Free Trial"],
+    discount: "42%",
+    popular: true,
+  },
+  {
+    planName: "Premium",
+    sellingPrice: "199",
+    originalPrice: "399",
+    duration: "6 Months",
+    descriptionEnumList: [
+      "Unlimited Support",
+      "Priority Access",
+      "Profile Verification",
+      "Access to Premium Features",
+    ],
+    notIncludedBenefits: ["No Free Trial"],
+    discount: "59%",
+    popular: true,
+  },
+];

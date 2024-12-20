@@ -83,3 +83,26 @@
     top: -225px;
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 768px) {
+    #widget ,
+    #widget canvas {
+        width: 260px;
+        height: 260px;
+    }
+
+    #widget .title {
+        font-size: 10rem;
+        line-height: 12rem;
+        top: -85px;
+    }
+    #widget h2 {
+        font-size: 2.6rem;
+        top: -104px;
+    }
+    .CoinSpinner{
+        height: fit-content;
+        margin: 10rem 0;
+    }
+
+}

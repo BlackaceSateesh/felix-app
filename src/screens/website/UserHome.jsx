@@ -8,8 +8,17 @@ import about1 from "../../assets/website/3dImg4.png";
 import about2 from "../../assets/website/3dImg3.png";
 import { Heading1, SubHeading1 } from "../../components/ui/Headings";
 import CoinSpinner from "../../components/ui/CoinSpinner";
+import Footer from "../../components/website/Footer";
+import { useNavigate } from "react-router-dom";
+import { AuthRoutes } from "../../constants/Routes";
 
 const UserHome = () => {
+    const navigate = useNavigate();
+  
+    const handleNavigate = () => {
+      navigate(AuthRoutes.LOGIN);
+    };
+  
   return (
     <>
       <div className="UserHome" id="home">
@@ -24,6 +33,7 @@ const UserHome = () => {
                 {UserWebsiteContent?.heroSection?.desc}
               </p>
               <Button1
+                onClick={handleNavigate}
                 dataAos={"fade-right"}
                 name="Login"
                 className={"login"}
@@ -84,8 +94,8 @@ const UserHome = () => {
             </p>
 
             <div className="card-box-wrapper">
-              {UserWebsiteContent?.servicesSection?.lists?.map((item,i) => (
-                <div key={`service-${i}`} className="card" data-aos="fade-up">
+              {UserWebsiteContent?.servicesSection?.lists?.map((item, i) => (
+                <div key={`service-${i}`} className="card1" data-aos="fade-up">
                   <div className="img-box">
                     <img className="img-drop-shadow " src={item?.icon} alt="" />
                   </div>
@@ -104,7 +114,7 @@ const UserHome = () => {
           <div className="section-inner">
             <Heading1 name={UserWebsiteContent?.bestProductSection?.title} />
             <div className="card-lists">
-              {UserWebsiteContent?.bestProductSection?.lists?.map((item,i) => (
+              {UserWebsiteContent?.bestProductSection?.lists?.map((item, i) => (
                 <div key={`product-${i}`} className="card" data-aos="fade-up">
                   <div className="top">
                     <div className="img-box">
@@ -132,13 +142,11 @@ const UserHome = () => {
               {UserWebsiteContent?.priceCardSection?.desc}
             </p>
             <div className="card-lists">
-              {UserWebsiteContent?.priceCardSection?.lists?.map((item,i) => (
+              {UserWebsiteContent?.priceCardSection?.lists?.map((item, i) => (
                 <div key={`price-${i}`} className="card" data-aos="fade-up">
-                  {
-                    item?.discount && (
-                      <div className="tag">{item?.discount}</div>
-                    )
-                  }
+                  {item?.discount && (
+                    <div className="tag">{item?.discount}</div>
+                  )}
                   <h5>{item?.price}</h5>
                   <h6>{item?.name}</h6>
                   <button>Subscribe</button>
@@ -149,9 +157,8 @@ const UserHome = () => {
         </div>
         {/* ======= price card section end ======= */}
         {/* ======= footer section start ======= */}
-        
+        <Footer />
         {/* ======= footer section end ======= */}
-
       </div>
     </>
   );

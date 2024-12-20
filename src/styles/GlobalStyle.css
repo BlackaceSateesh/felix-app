@@ -123,6 +123,16 @@
     color: var(--main-purple);
 }
 
+.Button2 {
+    background: #162D3A;
+    border-radius: 12px;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1.5rem 2rem;
+    width: 100%;
+}
+
 .Heading1 {
     font-family: var(--ff-monserrat);
     font-size: 4.8rem;
@@ -155,4 +165,341 @@
         radial-gradient(71.74% 117.31% at 32.95% 0%, rgba(255, 137, 137, 0.92) 21.25%, rgba(255, 169, 106, 0.57) 88.62%),
         radial-gradient(39.2% 181% at 5.68% 100%, rgba(246, 251, 34, 0.51) 0%, rgba(255, 158, 69, 0) 100%),
         radial-gradient(31.25% 236.33% at 96.59% 31.25%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.ss-card {
+    /* background-color: rgba(255, 255, 255, 0.228); */
+    background-image: linear-gradient(8deg, #fff0, #fff2, #fff3);
+    ;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    backdrop-filter: blur(20px);
+    transition: all .4s ease;
+}
+
+
+.Button5 {
+    color: #fff;
+    padding: 15px 25px;
+    background-color: #d2a638;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    height: fit-content;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    text-wrap: nowrap;
+}
+
+.Button5:active .UserHome .top-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
+
+.ss-card.welcome-card {
+    width: 100%;
+    position: relative;
+    padding: 4rem !important;
+}
+
+.ss-card.welcome-card .heading {
+    font-size: 3rem;
+    line-height: 3.4rem;
+    color: var(--text-secondary);
+}
+
+.ss-card.welcome-card .para1 {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 1rem;
+    display: block;
+}
+
+.ss-card.welcome-card .para1.bold {
+    font-weight: 800;
+
+}
+
+.ss-card.welcome-card .value {
+    font-size: 3rem;
+    line-height: 4rem;
+    color: var(--text-secondary);
+    font-weight: 800;
+    margin: 1.2rem 0;
+}
+
+.ss-card.welcome-card .content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ss-card.welcome-card .content .c-right {
+    width: 45rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.ss-card.welcome-card .Button5 {
+    animation: zigzag 2s infinite alternate-reverse;
+
+}
+
+.ss-card.welcome-card .btn-box {
+    margin-top: 2rem;
+}
+
+@keyframes zigzag {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, 10px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+
+}
+
+.modal-title {
+    color: var(--text-secondary);
+}
+
+.inputFieldBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputFieldBox .inputLabel,
+.p-column-title {
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+}
+
+.inputFieldBox input,
+.inputFieldBox textarea,
+.inputFieldBox select,
+.p-column-filter.p-inputtext {
+    padding: 1rem 1.4rem;
+    border-radius: 1rem;
+    border: 1px solid var(--text-secondary);
+    background-color: transparent;
+    color: var(--text-secondary);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.inputFieldBox textarea {
+    min-height: 10rem;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    column-gap: 2%;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.btns {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.SwitchPromoter-modal .inputFieldBox {
+    width: 48%;
+}
+
+.SwitchPromoter-modal .inputFieldBox.TextareaField {
+    width: 100%;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    padding: 1rem;
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    background-color: transparent;
+}
+
+.p-datatable .p-paginator-bottom {
+    background-color: transparent;
+    border: none;
+}
+
+.p-column-header-content,
+.p-column-filter {
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+.p-paginator-page,
+.p-dropdown,
+.p-paginator-element,
+.p-dropdown-label,
+.p-inputtext {
+    font-size: 1.4rem;
+}
+
+.p-dropdown {
+    background-color: transparent;
+    padding: 2px;
+}
+
+.martop {
+    margin-top: 2rem;
+}
+
+.ss-card.half {
+    width: 50%;
+    margin: 5rem auto;
+}
+
+.Withdrawal .heading,
+.MemberTopup .heading {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.ss-card.half .input-container .inputFieldBox {
+    width: 100%;
+}
+
+.ss-card.half .ButtonLinear {
+    width: 50%;
+    padding: 2rem;
+}
+
+.WithdrawalReport .top-wrapper {
+    display: flex;
+    column-gap: 2%;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.WithdrawalReport .top-wrapper .ss-card {
+    width: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.WithdrawalReport .top-wrapper .ss-card .txt .heading {
+    font-size: 2rem;
+}
+
+.WithdrawalReport .top-wrapper .ss-card .txt .para1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 1.4rem;
+}
+
+
+
+/* .ToggleButton {
+	transform: scale(2);
+} */
+
+.linearBg {
+    background: rgb(34, 193, 195);
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    color: var(--white);
+}
+
+.ToggleButton input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    width: 50px;
+    height: 30px;
+    background: #ccc;
+    border-radius: 50px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.ToggleButton input:checked[type="checkbox"] {
+    background: #7da6ff;
+}
+
+.ToggleButton input[type="checkbox"]::after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform: scale(.85);
+    transition: 0.4s;
+}
+
+.ToggleButton input:checked[type="checkbox"]::after {
+    left: 40%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .ss-card.welcome-card .content .c-right {
+        display: none;
+    }
+
+    .ss-card.welcome-card {
+        padding: 2rem !important;
+    }
+
+    .ss-card.welcome-card .heading {
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
+
+    .ss-card.welcome-card .para1 {
+        font-size: 1.6rem;
+    }
+
+    .p-filter-column {
+        min-width: 12rem;
+    }
+
+    .ss-card.half,
+    .WithdrawalReport .top-wrapper .ss-card {
+        width: 100%;
+    }
+
+    .WithdrawalReport .top-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .section-inner {
+        width: 92%;
+    }
+
+    .ss-button2 {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .Heading1 {
+        font-size: 3rem;
+    }
 }

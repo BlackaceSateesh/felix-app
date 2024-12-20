@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { MainContent } from "../../constants/content/MainContent";
 import { Button1 } from "../ui/Buttons";
+import { AuthRoutes } from "../../constants/Routes";
+import { FaXmark } from "react-icons/fa6";
+import { useState } from "react";
+import { TfiMenu } from "react-icons/tfi";
 
 const Header = () => {
   const headerData = [
@@ -24,21 +29,44 @@ const Header = () => {
       name: "Contact",
     },
   ];
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(AuthRoutes.LOGIN);
+  };
+
   return (
     <>
       <div className="Header">
         <div className="Header-inner section-inner">
+          <button onClick={() => setOpen(true)} className="navToggle">
+            <TfiMenu />
+          </button>
           <div data-aos="fade-right" className="logo box-wrapper">
             <img src={MainContent?.appLogo} alt="" />
           </div>
-          <div data-aos="fade-down" className="links-box box-wrapper">
+          <div
+            data-aos={window.innerWidth < 768 ? "" : "fade-right"}
+            className={`links-box box-wrapper ${open ? "active" : ""}`}
+          >
+            <button onClick={() => setOpen(false)} className="closeBtn">
+              <FaXmark />
+            </button>
             {headerData.map((item) => (
               <a key={item.id} href={`#${item.id}`} className="link">
                 {item.name}
               </a>
             ))}
           </div>
-          <Button1 dataAos={"fade-right"} className="login" name="Login" />
+          <Button1
+            onClick={() => {
+              handleNavigate();
+            }}
+            dataAos={"fade-right"}
+            className="login"
+            name="Login"
+          />
         </div>
       </div>
     </>

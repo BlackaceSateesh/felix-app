@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.UserMain .Header .closeBtn {
+    display: none;
+}
+
 .UserMain .Header .Header-inner {
     display: flex;
     justify-content: space-between;
@@ -26,10 +30,12 @@
 
 .UserMain .Header .Header-inner .box-wrapper.logo {
     height: 10rem;
+    padding: 1rem;
 }
 
 .UserMain .Header .Header-inner .box-wrapper.logo img {
     height: 100%;
+    width: auto;
 }
 
 .UserMain .Header .Header-inner .box-wrapper.links-box {
@@ -162,7 +168,7 @@
     margin-top: 10rem
 }
 
-.UserHome .service-section .card-box-wrapper .card {
+.UserHome .service-section .card-box-wrapper .card1 {
     padding: 35px 20px;
     width: 23%;
     color: rgba(240 240 240 / 0.7);
@@ -174,7 +180,7 @@
     padding-top: 10rem
 }
 
-.UserHome .service-section .card-box-wrapper .card .img-box {
+.UserHome .service-section .card-box-wrapper .card1 .img-box {
     width: 14rem;
     height: 14rem;
     background-color: var(--primary-black);
@@ -189,7 +195,7 @@
     justify-content: center
 }
 
-.UserHome .service-section .card-box-wrapper .card .img-box img {
+.UserHome .service-section .card-box-wrapper .card1 .img-box img {
     width: 80%;
     animation: jump 2s infinite alternate-reverse
 }
@@ -298,7 +304,8 @@
 .UserHome .best-product-section .card-lists .card .top h3 {
     font-size: 3rem;
     font-weight: 600;
-    font-family: var(--ff-dmsans)
+    font-family: var(--ff-dmsans);
+    color: var(--white);
 }
 
 .UserHome .best-product-section .card-lists .card .para {
@@ -316,7 +323,8 @@
 .UserHome .price-card-section .Heading1 {
     text-align: center;
 }
-.UserHome .price-card-section .para{
+
+.UserHome .price-card-section .para {
     text-align: center;
     margin: 2rem 0;
 }
@@ -347,8 +355,8 @@
     box-shadow: 0px 108px 132px 0px #4F3A8940 inset, 0px 3px 3px 0px #FFFFFF29 inset;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),
         linear-gradient(180deg, rgba(255, 255, 255, 0.08) -2.94%, rgba(255, 255, 255, 0) 100%);
-    }
-    
+}
+
 .UserHome .price-card-section .card-lists .card h5 {
     font-family: var(--ff-monserrat);
     font-size: 8rem;
@@ -381,7 +389,8 @@
     padding: 1.2rem 2.4rem;
     transition: all .3s ease;
 }
-.UserHome .price-card-section .card-lists .card button:hover{
+
+.UserHome .price-card-section .card-lists .card button:hover {
     background: linear-gradient(180deg, #A27CEE 0%, #7F4BE7 100%);
     box-shadow: 0px 4px 10px 0px #0000001F;
     border: 2px solid #FFFFFF26;
@@ -389,7 +398,6 @@
 }
 
 .UserHome .price-card-section .card-lists .card .tag {
-    background: linear-gradient(180deg, #A27CEE 0%, #7F4BE7 100%);
     box-shadow: 0px 4px 10px 0px #0000001F;
     border: 2px solid #FFFFFF26;
     border-radius: 1rem;
@@ -403,6 +411,15 @@
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
+    background: linear-gradient(180deg, #2D2E3E 0%, #161B1C 100%);
+}
+
+.UserHome .price-card-section .card-lists .card:nth-child(2) .tag {
+    background: linear-gradient(180deg, #A27CEE 0%, #7F4BE7 100%);
+}
+
+.UserHome .price-card-section .card-lists .card:nth-child(3) .tag {
+    background: linear-gradient(180deg, #FAB861 0%, #F79009 100%);
 }
 
 .UserHome .price-card-section .card-lists .card:nth-child(2) {
@@ -410,20 +427,119 @@
     box-shadow: 0px 72px 96px 0px #583BDC inset,
         0px 24px 36px 0px #9A89E6 inset,
         0px 3px 9px 0px #FFFFFF inset;
-    }
-    
-.UserHome .price-card-section .card-lists .card:nth-child(3) {
-    box-shadow: 
-    0px 15px 48px 0px #FF7300 inset,
-    0px 36px 48px 0px #9A89E6 inset,
-    0px 96px 120px 0px #583BDC inset,
-    0px 6px 12px 0px #FFFFFF inset;
-    background: #0602131A;
-    
 }
-.UserHome .price-card-section .card-lists .card:hover{
+
+.UserHome .price-card-section .card-lists .card:nth-child(3) {
+    box-shadow:
+        0px 15px 48px 0px #FF7300 inset,
+        0px 36px 48px 0px #9A89E6 inset,
+        0px 96px 120px 0px #583BDC inset,
+        0px 6px 12px 0px #FFFFFF inset;
+    background: #0602131A;
+
+}
+
+.UserHome .price-card-section .card-lists .card:hover {
     transition: all .3s ease;
     transform: translate3d(0, -10px, 0);
 }
 
 /* ============= price section end =============== */
+
+
+.UserHome .Footer .section-inner {
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 2px solid #F2F2F2;
+}
+
+.UserHome .Footer .section-inner .copyright-msg {
+    font-family: var(--ff-dmsans);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.8rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.navToggle{
+    font-size: 2rem;
+    color: var(--white);
+    margin-right: 1rem;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navToggle{
+        display: block;
+    }
+    .UserMain .Header .Header-inner{
+        align-items: center;
+    }
+    .UserMain .Header .Header-inner .box-wrapper.links-box {
+        position: fixed;
+        top: 0;
+        left: -30rem;
+        flex-direction: column;
+        width: 28rem;
+        height: 100vh;
+        z-index: 999;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3rem;
+        padding: 5rem 2rem;
+    }
+    .UserMain .Header .Header-inner .box-wrapper.links-box.active{
+        left: 0;
+    }
+
+    .UserMain .Header .closeBtn {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 2rem;
+        color: red;
+    }
+    .UserHome .hero-section .inner .left .title {
+        font-size: 4.5rem;
+        line-height: 6.6rem;
+    }
+    .UserHome .best-product-section .card-lists .card,
+    .UserHome .price-card-section .card-lists .card,
+    .UserHome .service-section .card-box-wrapper .card1,
+    .UserHome .hero-section .inner .left,
+    .UserHome .about-section .section-inner .left,
+    .UserHome .about-section .section-inner .right{
+        width: 100%;
+    }
+    .UserHome .hero-section .inner .right{
+        display: none;
+    }
+    .UserHome .hero-section{
+        overflow: hidden;
+    }
+    .UserHome .hero-section .cards-img-wrapper{
+        display: none;
+    }
+    .UserHome .about-section .section-inner{
+        flex-direction: column;
+    }
+    .UserHome .about-section{
+        top: -50px;
+    }
+    .UserHome .about-section .section-inner .left .img-box{
+        top: 20px;
+        width: 60%;
+        margin: 0 auto;
+        right: 0;
+    }
+    .UserHome .about-section .section-inner .right .para{
+        text-align: justify;
+    }
+    .UserHome .service-section .para.top{
+        text-align: justify;
+        width: 100%;
+    }
+}

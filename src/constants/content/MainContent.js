@@ -1,7 +1,9 @@
-import appLogo from "../../assets/app/appLogo.png"
+import appLogo from "../../assets/app/appLogo.jpg"
+import appLogoClr from "../../assets/app/appLogoTran.png"
 export const MainContent = {
-    appName: "Felix",
-    appLogo: appLogo,
+    appName: "Bullioncoin",
+    appLogo: appLogoClr,
+    appLogoClr:appLogoClr,
     appURL: "",
     contactNo: "+919302826662",
     email: "info@example.com",

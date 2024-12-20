@@ -1,9 +1,15 @@
-import React, { useState } from "react";
-import "./Sidebar.css"; // Link to the corresponding CSS for the sidebar
-
+import { useEffect, useState } from "react";
+import "../../styles/Sidebar.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { SidebarContent } from "../../constants/content/SidebarContent";
+import { MainContent } from "../../constants/content/MainContent";
+import { Link } from "react-router-dom";
+import { AuthenticatedRoutes } from "../../constants/Routes";
 const Sidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [activeLink, setActiveLink] = useState(
+    SidebarContent?.userAdmin?.[0]?.id
+  );
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -11,49 +17,62 @@ const Sidebar = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
+    if (window.innerWidth < 768) {
+      setIsSidebarOpen(false);
+    } 
   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsSidebarOpen(false);
+      } 
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <div className={`l-navbar ${isSidebarOpen ? "show" : ""}`} id="navbar">
+    <div
+      className={`Sidebar ss-card ${isSidebarOpen ? "show" : "hide"}`}
+      id="navbar"
+    >
       <nav className="nav">
         <div>
-          {/* Logo Section */}
-          <a href="#" className="nav-logo">
+          <Link to={AuthenticatedRoutes.USER_DASHBOARD} className="nav-logo">
             <img
-              src="https://i.ibb.co/VDBpqPx/logo-1.png"
+              src={MainContent.appLogoClr}
               alt="logo"
               className="nav-logo-icon"
             />
-            <span className="nav-logo-text">Bedimcode</span>
-          </a>
+          </Link>
 
-          {/* Toggle Button */}
           <div className="nav-toggle" id="nav-toggle" onClick={toggleSidebar}>
-            <i className={`bx ${isSidebarOpen ? "bx-chevron-left" : "bx-chevron-right"}`}></i>
+            {isSidebarOpen ? <IoIosArrowBack /> : <IoIosArrowForward />}
           </div>
 
-          {/* Navigation Links */}
           <ul className="nav-list">
-            {["home", "user", "notifications", "favorites", "bookmarks", "chat"].map((item) => (
-              <li key={item} className="nav-item">
-                <a
-                  href="#"
-                  className={`nav-link ${activeLink === item ? "active" : ""}`}
-                  onClick={() => handleLinkClick(item)}
+            {SidebarContent?.userAdmin?.map((item) => (
+              <li key={item?.id} className="nav-item">
+                <Link
+                  to={item?.link}
+                  className={`nav-link ${activeLink === item?.id ? "active" : ""}`}
+                  onClick={() => handleLinkClick(item?.id)}
                 >
-                  <i className={`bx bx-${item === "home" ? "grid-alt" : item} nav-icon`}></i>
-                  <span className="nav-text">{item.charAt(0).toUpperCase() + item.slice(1)}</span>
-                </a>
+                  {item?.icon}
+                  <span className="nav-text">
+                    {item?.name.charAt(0)?.toUpperCase() + item?.name.slice(1)}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
-
-        {/* Logout/Close Button */}
-        <a href="#" className="nav-link">
-          <i className="bx bx-log-out-circle nav-icon"></i>
-          <span className="nav-text">Close</span>
-        </a>
       </nav>
     </div>
   );

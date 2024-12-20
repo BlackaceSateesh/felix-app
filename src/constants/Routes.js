@@ -1,9 +1,15 @@
 // Authentication Routes
 export const AuthRoutes = {
-  LOGIN: "/",
+  LOGIN: "/login",
 };
 
 // Authenticated Routes
 export const AuthenticatedRoutes = {
-  User_HOME: "/",
+  USER_HOME: "/",
+  USER_DASHBOARD: "/dashboard",
+  USER_PROFILE: "/profile",
+  PACKAGE_REPORT: "/package-report",
+  WALLET : "/wallet",
+  WITHDRAWAL_REPORT: "/withdrawal-report",
+  OUR_PLANS: "/our-plans",
 };
