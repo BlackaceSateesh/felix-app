@@ -14,10 +14,21 @@
 .ProfilePage .input-container .inputFieldBox{
     width: 32%;
 }
+.ProfilePage .connect .inner-wrapper{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
 
 @media screen and (max-width: 768px) {
     
     .ProfilePage .input-container .inputFieldBox{
         width: 100%;
+    }
+    .ProfilePage .connect .inner-wrapper{
+        flex-direction: column;
+    }
+    .ProfilePage .connect .inner-wrapper .ss-card.half{
+        margin: 0;
     }
 }

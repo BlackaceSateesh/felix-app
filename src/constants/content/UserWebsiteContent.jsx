@@ -2,13 +2,14 @@ import { MainContent } from "./MainContent";
 
 export const UserWebsiteContent = {
   heroSection: {
-    title: "Best Market Solutions AI Worldwide",
+    title: "LIBER STATION",
+    subTitle:"LIBERATION",
     desc: "AI World is a rare, naturally occurring element discovered deep within asteroids. Scientists believe it originated during the formation of the cosmos itself.        ",
   },
   aboutSection: {
-    title: `About ${MainContent.appName}`,
+    title: `${MainContent.appName}`,
     subTitle: "About Us",
-    desc: "The Felixer project is aiming to bring trust and security to the world of crypto by providing convenient and instant payment solutions  With the rise of digital currencies, it's important to have a reliable and secure payment method that users can trust.",
+    desc: "BULLIONCOIN LBEC BEP20 is a DEFI coin designed and developed to provide the Crypto community a utility coin that can pair well with major coins and stake exceptionally well.",
   },
   servicesSection: {
     title: "Provide Awesome Service With Our Tools",
@@ -76,17 +77,17 @@ export const UserWebsiteContent = {
     desc: "A secure, non-custodial wallet supporting multiple blockchains, providing you full control over your assets",
     lists: [
       {
-        name: "Basic",
-        price: "$49",
+        name: "Bullet",
+        price: "100$",
       },
       {
-        name: "Standard",
-        price: "$99",
+        name: "Turbo",
+        price: "500$",
         discount: "42%",
       },
       {
-        name: "Premium",
-        price: "$199",
+        name: "Hyper",
+        price: "1000$",
         discount: "59%",
       },
     ],

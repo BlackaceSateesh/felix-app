@@ -11,6 +11,7 @@
   --primary-black: #101616;
   /* --main-purple: #A00F8D; */
   --main-purple: #D5AB09;
+  --secondary-purple: #eac840;
   --text-primary: #1a2638;
   --text-primary2: #0d0d0d;
   /* --text-secondary: #4a1843; */
@@ -20,7 +21,7 @@
   --ff-montserrat: "Montserrat", sans-serif;
   --ff-dmsans: "DM Sans", sans-serif;
   --ff-poppins: "Poppins", sans-serif;
-  }
+}
 
 a {
   text-decoration: none;
@@ -63,4 +64,8 @@ li {
 ul,
 ol {
   list-style: none;
+}
+
+.rd3t-link{
+  stroke: #fff !important;
 }

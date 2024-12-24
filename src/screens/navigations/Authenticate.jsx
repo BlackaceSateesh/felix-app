@@ -13,10 +13,10 @@ const Authenticate = () => {
     <>
       <Routes>
         <Route path={AuthenticatedRoutes.USER_HOME} element={<UserMain />} />
-        {/* <Route path="*" element={<UserMain />} /> */}
+        <Route path={"*"} element={<DashboardMain inner={<UserHome />} name="Dashboard" />} />
         <Route path={AuthenticatedRoutes.USER_DASHBOARD} element={<DashboardMain inner={<UserHome />} name="Dashboard" />} />
         <Route path={AuthenticatedRoutes.USER_PROFILE} element={<DashboardMain inner={<ProfilePage />} name="Profile" />} />
-        <Route path={AuthenticatedRoutes.PACKAGE_REPORT} element={<DashboardMain inner={<Reports />} name="Reports" />} />
+        <Route path={AuthenticatedRoutes.INVESTOR_REPORT} element={<DashboardMain inner={<Reports />} name="Investor Reports" />} />
         <Route path={AuthenticatedRoutes.WALLET} element={<DashboardMain inner={<Withdrawal />} name="Wallet" />} />
         <Route path={AuthenticatedRoutes.WITHDRAWAL_REPORT} element={<DashboardMain inner={<WithdrawalReport />} name="Withdrawal Report" />} />
         <Route path={AuthenticatedRoutes.OUR_PLANS} element={<DashboardMain inner={<OverallUserCustomPlan />} name="Our Plan" />} />

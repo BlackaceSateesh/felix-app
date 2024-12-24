@@ -122,13 +122,34 @@
     min-width: 15rem;
 }
 
-.UserHome .all-buttons .left .Button2:first-child {
+.UserHome .all-buttons .left .Button2:first-child,
+.UserHome .top-btns .left .Button2:first-child {
     background: rgb(34, 193, 195);
     background: radial-gradient(circle, rgb(255, 0, 136) 0%, var(--main-purple));
 }
 
+.UserHome .top-btns{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.UserHome .top-btns .left{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 2rem;
+}
+.UserHome .top-btns .left .Button2{
+    text-wrap: nowrap;
+    width: fit-content;
+}
 
 @media screen and (max-width: 768px) {
+    .UserHome .top-btns .ss-card.linearBg{
+        width: 100%;
+        text-align: center; 
+    }
     .UserHome .income-wrapper {
         flex-wrap: wrap;
     }
@@ -155,5 +176,8 @@
     .UserHome .all-buttons{
         flex-wrap: wrap;
         justify-content: center;
+    }
+    .UserHome .top-btns .left .Button2{
+       min-width: 45%;
     }
 }

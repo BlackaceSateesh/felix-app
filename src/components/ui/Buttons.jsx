@@ -10,6 +10,17 @@ export const Button1 = ({ className, name, dataAos, onClick }) => {
     </button>
   );
 };
+export const ButtonGlow = ({ className, name, dataAos, onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      data-aos={dataAos}
+      className={`ss-glowBTN ButtonGlow ${className}`}
+    >
+      {name}
+    </button>
+  );
+};
 export const Button2 = ({ className, name, dataAos, onClick }) => {
   return (
     <button

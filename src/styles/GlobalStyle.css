@@ -366,6 +366,11 @@ tbody, td, tfoot, th, thead, tr {
     margin-top: 2rem;
 }
 
+.heading1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
 .ss-card.half {
     width: 50%;
     margin: 5rem auto;
@@ -413,10 +418,85 @@ tbody, td, tfoot, th, thead, tr {
 }
 
 
+.error{
+    font-size: 1.2rem !important;
+    color: red !important;
+}
+
 
 /* .ToggleButton {
 	transform: scale(2);
 } */
+
+.ButtonGlow {
+  padding: 2rem 2rem;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.ButtonGlow:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-ButtonGlow 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-ButtonGlow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.ButtonGlow:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: var(--main-purple); */
+  background-color: #862BFE;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
 
 .linearBg {
     background: rgb(34, 193, 195);

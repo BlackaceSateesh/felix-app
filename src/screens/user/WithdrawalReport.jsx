@@ -69,11 +69,11 @@ const WithdrawalReport = () => {
             globalFilter={globalFilter}
           >
             <Column field="S_No" header="S.No" filter sortable />
-            <Column field="Amount" header="Amount ($)" filter sortable />
-            <Column field="Admin_charges" header="Admin Charges" filter sortable />
-            <Column field="Payable_Amount" header="Payable Amount" filter sortable />
+            {/* <Column field="Amount" header="Amount ($)" filter sortable /> */}
+            {/* <Column field="Admin_charges" header="Admin Charges" filter sortable /> */}
+            <Column field="Payable_Amount" header="Invested Amount" filter sortable />
             <Column field="Status" header="Status" filter sortable />
-            <Column field="Reason" header="Reason" filter sortable />
+            <Column field="trade_profit" header="Trade Profit" filter sortable />
             <Column field="Date" header="Date" filter sortable />
           </DataTable>
         </div>

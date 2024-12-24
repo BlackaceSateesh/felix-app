@@ -16,15 +16,16 @@ const CustomPlanCard = ({ data }) => {
         <div className="center">
           <div className="planValues">
             <h6 className="planName">{(data?.planName)?.replace('_', ' ')}</h6>
-            <h6 className="price">${data?.sellingPrice}</h6>
+            <h6 className="price">{data?.sellingPrice}$</h6>
             {/* <p className="duration">For {data?.duration}</p> */}
           </div>
           <span className="originprice">
-            <b>${data?.originalPrice}</b> Original Price
+            {/* <b>${data?.originalPrice}</b> Original Price */}
+            <b>{data?.plateform}</b>
           </span>
           <Button2 name="Choose Plan" />
         </div>
-        <span className="featureHeading">All features options</span>
+        {/* <span className="featureHeading">All features options</span>
         <div className="featureList">
           {data?.descriptionEnumList?.map((e, i) => {
             return (
@@ -46,7 +47,7 @@ const CustomPlanCard = ({ data }) => {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );

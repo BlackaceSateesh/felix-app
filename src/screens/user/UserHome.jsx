@@ -12,14 +12,18 @@ import { useNavigate } from "react-router-dom";
 import { AuthenticatedRoutes } from "../../constants/Routes";
 import { AllPlansContent } from "../../constants/content/dummy/AllPlanContent";
 import CustomPlanCard from "../../components/ui/CustomPlanCard";
+import { useSelector } from "react-redux";
+import { formatDate } from "../../utils/dateFunctions";
 const UserHome = () => {
+  const userInfo = useSelector((state) => state.userInfo.userInfo);
+
   const userData = {
-    sponsor_id: "SS123456",
-    subscription: "Premium",
-    trading_package: "$0000",
-    trading_profit: "$0000",
-    date_of_activation: "01/01/2023",
-    renewal_status: "Active",
+    // sponsor_id: "SS123456",
+    // subscription: "Premium",
+    trading_package: "$" + userInfo?.investment || "0",
+    trading_profit: "$" + userInfo?.totalIncome || "0",
+    date_of_activation: formatDate(userInfo?.activeDate),
+    renewal_status: userInfo?.isActive ? "Active" : "Inactive",
   };
   const memberData = [
     {
@@ -52,10 +56,37 @@ const UserHome = () => {
   const handleNavigate = (route) => {
     navigate(route);
   };
+
+  const showPromoterHandler = () => {
+    return !userInfo?.isActive && userInfo?.parmoterRequest === "Not Requested";
+  };
+
   return (
     <>
       <div className="UserHome">
-        <Achievement />
+        <div className="top-btns">
+          <div className="left">
+            <Button2 name={"Invest"} />
+            <Button2
+              onClick={() => handleNavigate(AuthenticatedRoutes.WALLET)}
+              name={"Withdrawal"}
+            />
+            <Button2
+              onClick={() => handleNavigate(AuthenticatedRoutes.USER_PROFILE)}
+              name={"Connect Wallet"}
+            />
+            <Button2
+              onClick={() => handleNavigate(AuthenticatedRoutes.OUR_PLANS)}
+              name={"Our Plans"}
+            />
+          </div>
+          <div className="ss-card linearBg">
+            <h4 className="heading">
+              <b>Total Amount:</b> ${userInfo?.totalIncome || "0"}
+            </h4>
+          </div>
+        </div>
+        {/* <Achievement />
         <div className="member-detaisMain">
           <div className="ss-card">
             <div className="member-details">
@@ -104,29 +135,33 @@ const UserHome = () => {
               </h4>
             </div>
           </div>
-        </div>
+        </div> */}
         <SwitchPromoter
           show={showPromotor}
           onHide={() => setShowPromotor(false)}
         />
-        <div className="top-wrapper martop">
+        <div className="top-wrapper martop" style={{ marginTop: showPromoterHandler() ? "" : "100px" }} >
           <div className="ss-card welcome-card">
             <div className="top">
-              <h5 className="heading">Welcome John!</h5>
+              <h5 className="heading">
+                Welcome {userInfo?.username || "User"}!
+              </h5>
             </div>
             <p className="para1">We're happy to have you on board.</p>
             <div className="content">
               <div className="c-left">
                 <span className="para1 bold">Ready to get started?</span>
                 <p className="para1">Check out your dashboard to begin!</p>
-                <div className="btn-box">
-                  <Button5
-                    onClick={() => {
-                      setShowPromotor(true);
-                    }}
-                    name={"Switch to Promotor"}
-                  />
-                </div>
+                {showPromoterHandler() && (
+                  <div className="btn-box">
+                    <Button5
+                      onClick={() => {
+                        setShowPromotor(true);
+                      }}
+                      name={"Switch to Promotor"}
+                    />
+                  </div>
+                )}
               </div>
               <div className="c-right">
                 <img src={cardImg} alt="gift icon" className="gift-icon" />
@@ -139,7 +174,7 @@ const UserHome = () => {
           <div className="income-card ss-card">
             <div className="left">
               <h5>Total Income</h5>
-              <p>$10,000</p>
+              <p>${userInfo?.totalIncome || "0"}</p>
             </div>
             <div className="right">
               <img
@@ -151,7 +186,7 @@ const UserHome = () => {
           <div className="income-card ss-card">
             <div className="left">
               <h5>Total Investment</h5>
-              <p>$1,000</p>
+              <p>${userInfo?.investment || "0"}</p>
             </div>
             <div className="right">
               <img
@@ -162,8 +197,8 @@ const UserHome = () => {
           </div>
           <div className="income-card ss-card">
             <div className="left">
-              <h5>Batch Income</h5>
-              <p>$400</p>
+              <h5>Current Income</h5>
+              <p>${userInfo?.correntIncome || "0"}</p>
             </div>
             <div className="right">
               <img
@@ -210,17 +245,17 @@ const UserHome = () => {
             <h6 className="text-val">Your Progress</h6>
           </div>
         </div>
-        <div className="ss-card  mar-top">
+        {/* <div className="ss-card  mar-top">
           <div className="head">
             <h5 className="cardHeading">Progress History</h5>
           </div>
           <SSDataTable />
-        </div>
+        </div> */}
         <div className="MatrimonyUserCustomPlan dash-card OverallUserCustomPlan">
           <div className="ss-card mar-top">
-          <div className="head">
-            <h5 className="cardHeading">Our Plans</h5>
-          </div>
+            <div className="head">
+              <h5 className="cardHeading">Our Plans</h5>
+            </div>
             <div className="offerCards">
               {AllPlansContent?.map((e, i) => (
                 <CustomPlanCard key={i} data={e} />

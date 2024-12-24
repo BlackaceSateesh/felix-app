@@ -4,12 +4,15 @@ import Auth from "./Auth";
 import Authenticate from "./Authenticate";
 
 const Navigation = () => {
+  const token = localStorage.getItem("token");
   return (
     <>
       <BrowserRouter>
-      {/* {true ? <Authenticate /> : <Auth />} */}
-      <Auth />
-      <Authenticate />
+        {token === null || token === "" || token === undefined ? (
+          <Auth />
+        ) : (
+          <Authenticate />
+        )}
       </BrowserRouter>
     </>
   );

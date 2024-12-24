@@ -5,11 +5,16 @@ import { SidebarContent } from "../../constants/content/SidebarContent";
 import { MainContent } from "../../constants/content/MainContent";
 import { Link } from "react-router-dom";
 import { AuthenticatedRoutes } from "../../constants/Routes";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeLink, setActiveLink] = useState(
     SidebarContent?.userAdmin?.[0]?.id
   );
+  const logoutHandler = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -19,13 +24,13 @@ const Sidebar = () => {
     setActiveLink(link);
     if (window.innerWidth < 768) {
       setIsSidebarOpen(false);
-    } 
+    }
   };
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setIsSidebarOpen(false);
-      } 
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -61,7 +66,9 @@ const Sidebar = () => {
               <li key={item?.id} className="nav-item">
                 <Link
                   to={item?.link}
-                  className={`nav-link ${activeLink === item?.id ? "active" : ""}`}
+                  className={`nav-link ${
+                    activeLink === item?.id ? "active" : ""
+                  }`}
                   onClick={() => handleLinkClick(item?.id)}
                 >
                   {item?.icon}
@@ -71,6 +78,17 @@ const Sidebar = () => {
                 </Link>
               </li>
             ))}
+            <li className="nav-item">
+              <Link
+                className={`nav-link`}
+                onClick={() => {
+                  logoutHandler();
+                }}
+              >
+                {<RiLogoutCircleRLine />}
+                <span className="nav-text">Logout </span>
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

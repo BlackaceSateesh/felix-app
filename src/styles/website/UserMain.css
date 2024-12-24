@@ -60,31 +60,57 @@
 /* ============= hero section start =============== */
 .UserHome .hero-section {
     width: 100%;
-}
-
-.UserHome .hero-section .inner {
-    padding: 4rem 0;
-    padding-left: 5%;
-    display: flex;
-    width: 100%;
+    min-height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
 }
 
+.UserHome .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.UserHome .hero-section .inner {
+    padding: 4rem 5%;
+    display: flex;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+}
+
 .UserHome .hero-section .inner .left {
-    width: 70%;
+    width: 100%;
 }
 
 .UserHome .hero-section .inner .left .title {
     font-family: var(--ff-dmsans);
     font-size: 9rem;
     font-weight: 800;
-    line-height: 9.2rem;
+    line-height: 10rem;
     margin-bottom: 2rem;
     text-shadow:
-        0px 10px 60px 0px #AE7129CC,
-        0px 20px 60px 0px #E8CD6E33,
-        -20px -20px 50px 0px #D3469B66,
-        0px 0px 20px 0px #FFFFFF99 inset;
+    0px 10px 60px 0px #AE7129CC,
+    0px 20px 60px 0px #E8CD6E33,
+    -20px -20px 50px 0px #D3469B66,
+    0px 0px 20px 0px #FFFFFF99 inset;
+    text-align: center;
+}
+.UserHome .hero-section .inner .left .title.textBg{
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: cover;
+    background-position:center;
+    font-weight: 900;
+    font-family: "Akira Expanded", sans-serif;
 }
 
 .UserHome .hero-section .inner .left .para {
@@ -93,7 +119,9 @@
     font-weight: 400;
     line-height: 2.8rem;
     color: #F2F2F2;
-    margin: 4rem 0;
+    margin: 4rem auto;
+    text-align: center;
+    width: 80%;
 }
 
 .UserHome .hero-section .cards-img-wrapper {
@@ -104,6 +132,13 @@
     position: relative;
 }
 
+.UserHome .hero-section .Button2.connectWalletBTN {
+    background: rgb(34, 193, 195) !important;
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    color: var(--white);
+    width: fit-content;
+}
+
 .UserHome .hero-section .cards-img-wrapper .cardImg {
     width: 30%;
     box-shadow: #cb6cc032 0px 10px 50px 0px, #cb6cc02a 0px 0px 0px 1px;
@@ -112,13 +147,82 @@
     height: fit-content;
 }
 
+.UserHome .btn-title{
+    text-align: center;
+    font-size: 3rem;
+    color: var(--white);
+    position: relative;
+    margin: 0 auto;
+}
+
+.UserHome .count-numbers {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.UserHome .count-numbers .ss-card {
+    width: 30%;
+    padding: 5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.UserHome .count-numbers .ss-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.UserHome .count-numbers .ss-card .content{
+    z-index: 2;
+    position: relative;
+}
+
+.UserHome .count-numbers .ss-card .name {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.UserHome .count-numbers .ss-card .count {
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 6rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+}
+
+.UserHome .count-numbers .ss-card .ButtonGlow {
+    margin-top: 2rem;
+    width: 100%;
+}
 
 /* ============= hero section end =============== */
+.process-section-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
 /* ============= about section start =============== */
 .UserHome .about-section {
     width: 100%;
     position: relative;
-    top: -100px;
+    /* top: -100px; */
+    margin-top: 20rem;
+    margin-bottom: 5rem;
 }
 
 .UserHome .about-section .section-inner {
@@ -463,20 +567,280 @@
     display: block;
 }
 
-.navToggle{
+.navToggle {
     font-size: 2rem;
     color: var(--white);
     margin-right: 1rem;
     display: none;
 }
 
+/* faq section start */
+.UserHome .faq-section .section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.UserHome .faq-section .section-inner .faq-tab {
+    width: 100%;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-panel button {
+    padding: 1.4rem 2rem;
+    background-color: var(--secondary-purple);
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-panel button:nth-child(1) {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-panel button:nth-child(2) {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-panel button.active {
+    background-color: var(--main-purple);
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-content {
+    width: 100%;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-content .accordion {
+    width: 100%;
+    display: flex;
+    column-gap: 2%;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-content .accordion-item {
+    width: 48%;
+    height: fit-content;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-content .accordion-item .accordion-header button {
+    background-color: var(--main-purple);
+    color: var(--white);
+    font-size: 1.6rem;
+    padding: 1.5rem 1.8rem;
+    font-weight: 600;
+}
+
+.UserHome .faq-section .section-inner .faq-tab .tab-content .accordion-item .accordion-body {
+    background-color: var(--secondary-purple);
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    color: var(--white);
+}
+
+/* faq section end */
+
+/* our partners start */
+.UserHome .our-project {
+    margin-top: 10rem;
+}
+
+.UserHome .our-project .Heading1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.UserHome .our-project .partner-inner {
+    width: 100%;
+    display: flex;
+    column-gap: 2%;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 4rem;
+}
+
+.UserHome .our-project .partner-inner .partnerCard {
+    height: 61px;
+    width: 23.5%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.UserHome .our-project .partner-inner .partnerCard img {
+    height: 100%;
+    width: auto;
+}
+
+/* our partners end */
+.UserHome .walletmask {
+    margin-top: 8rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10rem 0;
+}
+
+.UserHome .walletmask .Heading1 {
+    color: var(--main-purple);
+    font-size: 3rem;
+}
+
+.UserHome .walletmask .wallet-inner {
+    width: 100%;
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.UserHome .walletmask .walletCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.6rem;
+    width: 25%;
+}
+
+.UserHome .walletmask .walletCard .img-card {
+    width: 13rem;
+}
+
+.UserHome .walletmask .walletCard span {
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.UserHome .exchange-section {
+    margin-top: 10rem;
+}
+
+.UserHome .exchange-section .exchange-inner {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2%;
+    row-gap: 2rem;
+    margin-top: 8rem;
+}
+
+.UserHome .exchange-section .exchange-inner .exchangeCard {
+    width: 30%;
+    height: 6rem;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.UserHome .exchange-section .exchange-inner .exchangeCard img {
+    height: 100%;
+    width: auto;
+}
+
+/*  */
+.UserHome .revenue-section {
+    width: 100%;
+    margin: 5rem 0;
+}
+
+.UserHome .revenue-section .section-inner {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.UserHome .revenue-section .section-inner .Heading1 {
+    text-align: center;
+}
+
+.UserHome .revenue-section .section-inner .card-lists {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.UserHome .revenue-section .section-inner .card-lists .card-box {
+    width: 100%;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.UserHome .revenue-section .section-inner .card-lists .card-box .img-box {
+    height: 100%;
+    min-width: 45%;
+    width: 45%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.UserHome .revenue-section .section-inner .card-lists .card-box .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.UserHome .revenue-section .section-inner .card-lists .card-box .tag {
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    width: fit-content;
+}
+
+.UserHome .revenue-section .section-inner .card-lists .card-box .content .title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.6rem;
+}
+
+.UserHome .revenue-section .section-inner .card-lists .card-box .content .para1 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+}
+
+/*  */
+
 @media screen and (max-width: 768px) {
-    .navToggle{
+    .navToggle {
         display: block;
     }
-    .UserMain .Header .Header-inner{
+
+    .UserMain .Header .Header-inner {
         align-items: center;
     }
+
     .UserMain .Header .Header-inner .box-wrapper.links-box {
         position: fixed;
         top: 0;
@@ -490,7 +854,8 @@
         gap: 3rem;
         padding: 5rem 2rem;
     }
-    .UserMain .Header .Header-inner .box-wrapper.links-box.active{
+
+    .UserMain .Header .Header-inner .box-wrapper.links-box.active {
         left: 0;
     }
 
@@ -502,44 +867,119 @@
         font-size: 2rem;
         color: red;
     }
+
     .UserHome .hero-section .inner .left .title {
         font-size: 4.5rem;
         line-height: 6.6rem;
     }
+
     .UserHome .best-product-section .card-lists .card,
     .UserHome .price-card-section .card-lists .card,
     .UserHome .service-section .card-box-wrapper .card1,
     .UserHome .hero-section .inner .left,
     .UserHome .about-section .section-inner .left,
-    .UserHome .about-section .section-inner .right{
+    .UserHome .about-section .section-inner .right {
         width: 100%;
     }
-    .UserHome .hero-section .inner .right{
+
+    .UserHome .hero-section .inner .right {
         display: none;
     }
-    .UserHome .hero-section{
+
+    .UserHome .hero-section {
         overflow: hidden;
     }
-    .UserHome .hero-section .cards-img-wrapper{
+
+    .UserHome .hero-section .cards-img-wrapper {
         display: none;
     }
-    .UserHome .about-section .section-inner{
+
+    .UserHome .about-section .section-inner {
         flex-direction: column;
     }
-    .UserHome .about-section{
+
+    .UserHome .about-section {
         top: -50px;
     }
-    .UserHome .about-section .section-inner .left .img-box{
+
+    .UserHome .about-section .section-inner .left .img-box {
         top: 20px;
         width: 60%;
         margin: 0 auto;
         right: 0;
     }
-    .UserHome .about-section .section-inner .right .para{
+
+    .UserHome .about-section .section-inner .right .para {
         text-align: justify;
     }
-    .UserHome .service-section .para.top{
+
+    .UserHome .service-section .para.top {
         text-align: justify;
         width: 100%;
     }
+    .UserHome .count-numbers{
+        flex-wrap: wrap;
+    } 
+    .UserHome .count-numbers .ss-card{
+        width: 100%;
+    }
+    .ProcessSteps .step-wrapper svg{
+        display: none;
+    }
+    .ProcessSteps .linestep{
+        position: static !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        margin-top: 2rem !important;
+
+    }
+    .ProcessSteps .linestep .ss-card{
+        position: static !important;
+        width: 100% !important;
+    }
+    .ProcessSteps .step-wrapper{
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    .revenue-section .Heading1{
+        line-height: 5rem;
+    }
+    .UserHome .revenue-section .section-inner .card-lists .card-box{
+        flex-direction: column;
+    }
+    .UserHome .revenue-section .section-inner .card-lists .card-box .img-box,
+    .UserHome .faq-section .section-inner .faq-tab .tab-content .accordion-item,
+    .UserHome .exchange-section .exchange-inner{
+        width: 100%;
+    }
+    .UserHome .revenue-section .section-inner{
+        width: 92%;
+    }
+    .UserHome .price-card-section{
+        padding-top: 0;
+    }
+    .UserHome .our-project .partner-inner .partnerCard,
+    .UserHome .exchange-section .exchange-inner .exchangeCard{
+        width: 48%;
+        height: 36px;
+    }
+    .UserHome .exchange-section {
+        margin-top: 4rem;
+    }
+    
+}
+
+@media screen and (max-width: 499px) {
+    .UserHome .walletmask .wallet-inner {
+        flex-direction: column;
+        align-items: center;
+    }
+    .UserHome .walletmask .walletCard{
+        width: 100%;
+    }
+    .UserMain .Header .Header-inner .navToggle,
+    .UserHome .Header .Header-inner .Button1.ss-button2{
+        display: none !important;
+    }
+    
 }

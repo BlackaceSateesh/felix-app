@@ -23,12 +23,7 @@ export const SidebarContent = {
       name: "Profile",
       link: AuthenticatedRoutes.USER_PROFILE,
     },
-    {
-      id: "Package_Report",
-      icon: <LuPackageSearch />,
-      name: "Package Report",
-      link: AuthenticatedRoutes.PACKAGE_REPORT,
-    },
+  
     {
       id: "Wallet",
       icon: <FaWallet />,
@@ -40,6 +35,12 @@ export const SidebarContent = {
       icon: <PiHandWithdrawBold />,
       name: "Withdrawal Report",
       link: AuthenticatedRoutes.WITHDRAWAL_REPORT,
+    },
+    {
+      id: "Investor_Report",
+      icon: <LuPackageSearch />,
+      name: "Investment Report",
+      link: AuthenticatedRoutes.INVESTOR_REPORT,
     },
     {
       id: "OurPlan",
@@ -88,10 +89,6 @@ export const SidebarContent = {
     //   name: "My Team",
     // },
 
-    {
-      id: "Logout",
-      icon: <RiLogoutCircleRLine />,
-      name: "Logout",
-    },
+   
   ],
 };

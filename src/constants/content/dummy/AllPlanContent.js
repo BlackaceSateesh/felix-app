@@ -1,7 +1,8 @@
 export const AllPlansContent = [
   {
-    planName: "Basic",
-    sellingPrice: "49",
+    planName: "Bullet",
+    plateform: "Plateform 1",
+    sellingPrice: "100",
     originalPrice: "99",
     duration: "1 Month",
     descriptionEnumList: ["Unlimited Support", "24/7 Access"],
@@ -9,8 +10,9 @@ export const AllPlansContent = [
     popular: false,
   },
   {
-    planName: "Standard",
-    sellingPrice: "99",
+    planName: "Turbo",
+    plateform: "Plateform 2",
+    sellingPrice: "500",
     originalPrice: "149",
     duration: "3 Months",
     descriptionEnumList: [
@@ -23,8 +25,9 @@ export const AllPlansContent = [
     popular: true,
   },
   {
-    planName: "Premium",
-    sellingPrice: "199",
+    planName: "Hyper",
+    plateform: "Plateform 3",
+    sellingPrice: "1000",
     originalPrice: "399",
     duration: "6 Months",
     descriptionEnumList: [
