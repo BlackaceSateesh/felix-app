@@ -2,12 +2,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button2, ToggleButton } from "../ui/Buttons";
 import TextInput from "../ui/TextInput";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AuthenticatedRoutes, AuthRoutes } from "../../constants/Routes";
+import { loginWithEmailApi } from "../../api/auth-api";
 import PageLoader from "../ui/PageLoader";
 import { emailValidator, passwordValidator } from "../../utils/inputValidator";
 import { SwalError, SwalSuccess } from "../../utils/custom-alert";
-import { ethers } from "ethers";
+import { loginWithWallet } from "../../api/wallet-api";
 
 const AuthLoginForm = () => {
   const [mode, setMode] = useState(true);
@@ -17,7 +18,6 @@ const AuthLoginForm = () => {
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const [currentAccount, setCurrentAccount] = useState(null);
 
   const navigate = useNavigate();
 
@@ -79,69 +79,56 @@ const AuthLoginForm = () => {
     }
   };
 
-  const handleWalletLogin = async () => {
-    if (!window.ethereum) {
+  const handleLogin = async () => {
+    if (typeof window.ethereum !== "undefined") {
+      // eslint-disable-next-line no-undef
+      const web3 = new Web3(window.ethereum);
+      try {
+        // Request account access if needed
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        const account = accounts[0];
+
+        const message = "Please sign this message to log in to the application";
+        const signature = await web3.eth.personal.sign(message, account);
+        console.log(account, signature);
+
+        const { data } = await loginWithWallet({ account, signature });
+        console.log(data);
+        if (data.success) {
+          SwalSuccess.fire({
+            icon: "success",
+            title: "Login Success",
+            text: "You have logged in successfully",
+          });
+          localStorage.setItem("token", data.token);
+          setTimeout(() => {
+            handleNavigate();
+          }, 2000);
+        } else {
+          SwalError.fire({
+            icon: "error",
+            title: "Login Failed",
+            text: "Authentication failed",
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        SwalError.fire({
+          icon: "error",
+          title: "MetaMask Error",
+          text: error?.response?.data?.message,
+        });
+      }
+    } else {
       SwalError.fire({
         icon: "error",
-        title: "No Wallet Found",
-        text: "Please install a wallet like MetaMask to continue.",
-      });
-      return;
-    }
-
-    const { ethereum } = window;
-    try {
-      // Request user's accounts
-      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      const account = accounts[0];
-      setCurrentAccount(account);
-
-      // Set up the provider and signer
-      const provider = new ethers.BrowserProvider(ethereum);
-      const signer = provider.getSigner();  // Get signer from provider
-
-      // Sign a message for wallet authentication
-      const message = `Login to my app with your wallet address: ${account}`;
-      const signature = await signer.signMessage(message); // Sign message using signer
-
-      console.log("Signed message:", signature);
-
-      // You can send the signed message to your backend for verification here
-
-      SwalSuccess.fire({
-        icon: "success",
-        title: "Wallet Login Success",
-        text: "You have successfully logged in with your wallet!",
-      });
-
-      // Store the wallet address in localStorage for session management
-      localStorage.setItem("walletAddress", account);
-      setTimeout(() => {
-        handleNavigate();
-      }, 2000);
-
-    } catch (error) {
-      console.error("Error during wallet login:", error);
-      SwalError.fire({
-        icon: "error",
-        title: "Wallet Login Failed",
-        text: error.message,
+        title: "Login Failed",
+        text: "Please install MetaMask!",
       });
     }
   };
-
-  useEffect(() => {
-    if (window.ethereum) {
-      const { ethereum } = window;
-      ethereum.on('accountsChanged', (accounts) => {
-        if (accounts.length > 0) {
-          setCurrentAccount(accounts[0]);
-        } else {
-          setCurrentAccount(null);
-        }
-      });
-    }
-  }, []);
 
   return (
     <>
@@ -194,7 +181,7 @@ const AuthLoginForm = () => {
               disabled={loading}
             />
           ) : (
-            <Button2 onClick={handleWalletLogin} name={"Connect Wallet"} />
+            <Button2 onClick={handleLogin} name={"Connect Wallet"} />
           )}
         </div>
 

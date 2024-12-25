@@ -8,6 +8,8 @@ import { AuthenticatedRoutes } from "../../constants/Routes";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+const userRole = localStorage.getItem("userRole");
+
   const [activeLink, setActiveLink] = useState(
     SidebarContent?.userAdmin?.[0]?.id
   );
@@ -62,7 +64,7 @@ const Sidebar = () => {
           </div>
 
           <ul className="nav-list">
-            {SidebarContent?.userAdmin?.map((item) => (
+            {SidebarContent(userRole)?.userAdmin?.map((item) => (
               <li key={item?.id} className="nav-item">
                 <Link
                   to={item?.link}

@@ -75,44 +75,7 @@ const ProfilePage = () => {
             <Button5 name={"Edit"} />
           </div>
         </div>
-        <div className="inner ss-card connect martop">
-          <div className="head">
-            <h5 className="heading1">Connect Wallet</h5>
-          </div>
-
-          <div className="inner-wrapper">
-            <div className="ss-card half">
-              <div className="head">
-                <h5 className="heading1">BNB Wallet</h5>
-              </div>
-              <div className="input-container">
-                <TextInput
-                  placeholder={"Enter Address"}
-                  labelName="BNB Wallet Address"
-                />
-              </div>
-              <div className="btns">
-                <Button5 name={"Edit"} />
-                <Button5 name={"Update"} />
-              </div>
-            </div>
-            <div className="ss-card half">
-              <div className="head">
-                <h5 className="heading1">ETH Wallet</h5>
-              </div>
-              <div className="input-container">
-                <TextInput
-                  placeholder={"Enter Address"}
-                  labelName="ETH Wallet Address"
-                />
-              </div>
-              <div className="btns">
-                <Button5 name={"Edit"} />
-                <Button5 name={"Update"} />
-              </div>
-            </div>
-          </div>
-        </div>
+    
       </div>
     </>
   );

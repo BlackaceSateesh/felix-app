@@ -23,3 +23,8 @@ export async function getUserInfo() {
   });
   return response?.data?.user;
 }
+
+export async function loginWithEmailAdmin(payload) {
+  const response = await axios.post(`${loginApiBaseAUrl}/admin/login`, payload);
+  return response?.data;
+}

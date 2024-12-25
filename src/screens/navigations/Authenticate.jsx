@@ -8,6 +8,9 @@ import Reports from "../user/Reports";
 import Withdrawal from "../user/Withdrawal";
 import WithdrawalReport from "../user/WithdrawalReport";
 import OverallUserCustomPlan from "../user/OverallUserCustomPlan";
+import PromoterReport from "../user/PromoterReport";
+import AdminDashboard from "../admin/AdminDashboard";
+import PromoterAproval from "../admin/PromoterAproval";
 const Authenticate = () => {
   return (
     <>
@@ -15,11 +18,14 @@ const Authenticate = () => {
         <Route path={AuthenticatedRoutes.USER_HOME} element={<UserMain />} />
         <Route path={"*"} element={<DashboardMain inner={<UserHome />} name="Dashboard" />} />
         <Route path={AuthenticatedRoutes.USER_DASHBOARD} element={<DashboardMain inner={<UserHome />} name="Dashboard" />} />
+        <Route path={AuthenticatedRoutes.ADMIN_DASHBOARD} element={<DashboardMain inner={<AdminDashboard />} name="Dashboard" />} />
+        <Route path={AuthenticatedRoutes.APROVED_PROMOTER} element={<DashboardMain inner={<PromoterAproval />} name="Promoter Aproval" />} />
         <Route path={AuthenticatedRoutes.USER_PROFILE} element={<DashboardMain inner={<ProfilePage />} name="Profile" />} />
         <Route path={AuthenticatedRoutes.INVESTOR_REPORT} element={<DashboardMain inner={<Reports />} name="Investor Reports" />} />
         <Route path={AuthenticatedRoutes.WALLET} element={<DashboardMain inner={<Withdrawal />} name="Wallet" />} />
         <Route path={AuthenticatedRoutes.WITHDRAWAL_REPORT} element={<DashboardMain inner={<WithdrawalReport />} name="Withdrawal Report" />} />
         <Route path={AuthenticatedRoutes.OUR_PLANS} element={<DashboardMain inner={<OverallUserCustomPlan />} name="Our Plan" />} />
+        <Route path={AuthenticatedRoutes.PROMOTER_REPORT} element={<DashboardMain inner={<PromoterReport />} name="Promoter Report" />} />
       </Routes>
     </>
   );

@@ -7,7 +7,6 @@ import { setUserInfo } from "../../redux/slice/UserInfoSlice";
 const DashboardHeader = ({ name }) => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.userInfo.userInfo);
-  console.log(userInfo);
   useEffect(() => {
     if (!userInfo) {
       const fetchUserInfo = async () => {

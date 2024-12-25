@@ -104,6 +104,12 @@
 .UserHome .detail-table table {
     width: 100%;
 }
+.AdminDashboard.UserHome .income-wrapper{
+    flex-wrap: wrap;
+}
+.AdminDashboard.UserHome .income-wrapper .income-card{
+    width: 32%;
+}
 
 
 .UserHome .all-buttons {

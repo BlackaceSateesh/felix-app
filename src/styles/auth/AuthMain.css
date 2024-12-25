@@ -125,3 +125,19 @@
     }
     
 }
+
+.AdminMain{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AdminLoginForm{
+    width: 30rem;
+    height: fit-content;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 1.5rem;
+}

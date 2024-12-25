@@ -11,5 +11,6 @@ export const MainContent = {
 };
 
 export const backendConfig = {
-  base: "http://192.168.29.221:3000/api",
+  base: "https://bullion-coin-backend.onrender.com/api",
+  // base: "http://192.168.29.221:3000/api",
 };

@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
-import { HiCheck } from "react-icons/hi";
-import { RiCloseFill } from "react-icons/ri";
+import { useState } from "react";
 import { Button2 } from "./Buttons";
+import BNBPayment from "../wallet/BNBPayment";
 
 const CustomPlanCard = ({ data }) => {
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+
+  const handleInvestClick = () => {
+    setShowPaymentModal(true);
+  };
   return (
     <>
       <div className="MatrimonyCustomOfferCard ss-card">
@@ -15,40 +20,35 @@ const CustomPlanCard = ({ data }) => {
 
         <div className="center">
           <div className="planValues">
-            <h6 className="planName">{(data?.planName)?.replace('_', ' ')}</h6>
+            <h6 className="planName">{data?.planName?.replace("_", " ")}</h6>
             <h6 className="price">{data?.sellingPrice}$</h6>
-            {/* <p className="duration">For {data?.duration}</p> */}
           </div>
           <span className="originprice">
-            {/* <b>${data?.originalPrice}</b> Original Price */}
             <b>{data?.plateform}</b>
           </span>
-          <Button2 name="Choose Plan" />
+          <Button2 onClick={handleInvestClick} name="Invest" />
         </div>
-        {/* <span className="featureHeading">All features options</span>
-        <div className="featureList">
-          {data?.descriptionEnumList?.map((e, i) => {
-            return (
-              <div key={i} className="list">
-                <div className="circle active">
-                <HiCheck />
-                </div>
-                {e}
-              </div>
-            );
-          })}
-          {data?.notIncludedBenefits?.map((e, i) => {
-            return (
-              <div key={i} className="list">
-                <div className="circle">
-                <RiCloseFill />
-                </div>
-                {e}
-              </div>
-            );
-          })}
-        </div> */}
       </div>
+
+      {showPaymentModal && (
+        <div className="payment-modal">
+          <div className="modal-content">
+            <h4>Bullioncoin</h4>
+            <BNBPayment
+              amount={data?.sellingPrice} 
+              onSuccess={() => setShowPaymentModal(false)}
+              onFailure={() => setShowPaymentModal(false)}
+            />
+            <button
+              onClick={() => setShowPaymentModal(false)}
+              className="close-modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
     </>
   );
 };

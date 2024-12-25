@@ -20,8 +20,8 @@ const UserHome = () => {
   const userData = {
     // sponsor_id: "SS123456",
     // subscription: "Premium",
-    trading_package: "$" + userInfo?.investment || "0",
-    trading_profit: "$" + userInfo?.totalIncome || "0",
+    trading_package: "$" + userInfo?.investment?.toFixed(4) || "0",
+    trading_profit: "$" + userInfo?.totalIncome?.toFixed(4) || "0",
     date_of_activation: formatDate(userInfo?.activeDate),
     renewal_status: userInfo?.isActive ? "Active" : "Inactive",
   };
@@ -66,14 +66,10 @@ const UserHome = () => {
       <div className="UserHome">
         <div className="top-btns">
           <div className="left">
-            <Button2 name={"Invest"} />
+            <Button2 name={"Invest"} onClick={() => handleNavigate(AuthenticatedRoutes.OUR_PLANS)} />
             <Button2
               onClick={() => handleNavigate(AuthenticatedRoutes.WALLET)}
               name={"Withdrawal"}
-            />
-            <Button2
-              onClick={() => handleNavigate(AuthenticatedRoutes.USER_PROFILE)}
-              name={"Connect Wallet"}
             />
             <Button2
               onClick={() => handleNavigate(AuthenticatedRoutes.OUR_PLANS)}
@@ -82,7 +78,7 @@ const UserHome = () => {
           </div>
           <div className="ss-card linearBg">
             <h4 className="heading">
-              <b>Total Amount:</b> ${userInfo?.totalIncome || "0"}
+              <b>Total Amount:</b> ${userInfo?.totalIncome?.toFixed(4) || "0"}
             </h4>
           </div>
         </div>
@@ -174,7 +170,7 @@ const UserHome = () => {
           <div className="income-card ss-card">
             <div className="left">
               <h5>Total Income</h5>
-              <p>${userInfo?.totalIncome || "0"}</p>
+              <p>${userInfo?.totalIncome?.toFixed(4) || "0"}</p>
             </div>
             <div className="right">
               <img
@@ -186,7 +182,7 @@ const UserHome = () => {
           <div className="income-card ss-card">
             <div className="left">
               <h5>Total Investment</h5>
-              <p>${userInfo?.investment || "0"}</p>
+              <p>${userInfo?.investment?.toFixed(4) || "0"}</p>
             </div>
             <div className="right">
               <img
@@ -198,7 +194,7 @@ const UserHome = () => {
           <div className="income-card ss-card">
             <div className="left">
               <h5>Current Income</h5>
-              <p>${userInfo?.correntIncome || "0"}</p>
+              <p>${userInfo?.todayIncome?.toFixed(4) || "0"}</p>
             </div>
             <div className="right">
               <img
